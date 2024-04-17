@@ -1,5 +1,12 @@
 import './index.css';
-import { MyClass } from './example-unit';
+import { Clock } from './Clock/Clock';
 
-const a = new MyClass(2);
-console.log('number is', a.get());
+window.onload = function() {
+    document.getElementById('addClockButton').addEventListener('click', () => {
+        const hourOffsetInput = document.getElementById('hourOffsetInput') as HTMLInputElement;
+        const hourOffset = parseInt(hourOffsetInput.value);
+        new Clock(hourOffset);
+    });
+};
+
+

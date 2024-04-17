@@ -1,3 +1,108 @@
 h1 {
-    color: red;
+    font-size: 28px;
+    margin-bottom: 20px;
 }
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+  
+.clock {
+    margin: 50px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-button {
+    position: absolute;
+    width: 100px; 
+    height: 40px; 
+    background-color: #ffffff; 
+    border: 2px solid #ccc; 
+    cursor: pointer;
+    border-radius: 0; 
+}
+
+.clock-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.light-on {
+    color: yellow; /* Changer la couleur du texte pour améliorer la visibilité la nuit */
+    background-color: black; /* Fond plus sombre pour un contraste élevé */
+}
+
+
+.mode-button {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.light-button {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.increase-button {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.reset-button {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.format-button {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+
+
+
+
