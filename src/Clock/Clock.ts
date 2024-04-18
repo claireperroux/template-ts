@@ -217,7 +217,6 @@ export class Clock {
 
   }
 
-
   public toggleTimeFormat(): void {
       this.is24HourFormat = !this.is24HourFormat;
       this.updateTime();
