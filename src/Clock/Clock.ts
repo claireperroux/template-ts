@@ -28,7 +28,7 @@ export class Clock {
         this.minuteOffset = 0;
         this.editMode = 'notEditable';
         this.is24HourFormat = true;
-        this.mode= null;
+        this.mode=null;
         this.setupButtons();
         this.attachEventListeners();
         this.updateTime();
@@ -81,7 +81,6 @@ export class Clock {
         const radius: number = 150;  
 
         const button = this.container.querySelector(`.${buttonClass}`) as HTMLElement;
-        if (!button) throw new Error("Button not found");
 
         const centerX = this.container.offsetWidth/2;
         const centerY = this.container.offsetHeight/2;
@@ -134,26 +133,23 @@ export class Clock {
 
   
 
-    public toggleLight(): void {
+    private toggleLight(): void {
         if (this.hourDisplay) {
             this.hourDisplay.classList.toggle('light-on');
         }
     }
 
-    public toggleEditMode(): void {
+    private toggleEditMode(): void {
         if (this.editMode === 'notEditable') {
             this.editMode = 'hour';
-            this.hourDisplay.classList.add('hour');
         } else if (this.editMode === 'hour') {
             this.editMode = 'minute';
-            this.hourDisplay.classList.replace('hour', 'minute');
         } else if (this.editMode === 'minute') {
             this.editMode = 'notEditable';
-            this.hourDisplay.classList.remove('minute');
         }
     }
 
-    public increase(): void {
+    private increase(): void {
         if (this.editMode !== 'notEditable') {
             if (this.editMode === 'hour') {
                 this.hourOffset++;
@@ -171,13 +167,13 @@ export class Clock {
         }
     }
 
-    public reset(): void {
+    private reset(): void {
         this.hourOffset = this.initialHourOffset; 
         this.minuteOffset = 0; 
         this.updateTime(); 
     }
 
-    public toggleTimeFormat(): void {
+    private toggleTimeFormat(): void {
         this.is24HourFormat = !this.is24HourFormat;
         this.updateTime();
     }
