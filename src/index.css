@@ -46,11 +46,6 @@ body {
     font-size: 24px;
 }
 
-.light-on {
-    color: yellow; /* Changer la couleur du texte pour améliorer la visibilité la nuit */
-    background-color: black; /* Fond plus sombre pour un contraste élevé */
-}
-
 
 .mode-button {
     position: absolute;
@@ -100,6 +95,11 @@ body {
     border: 2px solid #ccc;
     cursor: pointer;
     border-radius: 0;
+}
+
+.light-on {
+    color: yellow; 
+    background-color: black; 
 }
 
 

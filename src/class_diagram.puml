@@ -1,4 +1,4 @@
-@startuml
+@startuml Diagramme de classe
 class Clock {
     hourDisplay : HTMLElement
     hourOffset : number
