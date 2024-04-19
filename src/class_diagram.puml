@@ -9,10 +9,9 @@ class Clock {
     container : HTMLElement
     initialHourOffset : number
     static count : number
-    static readonly rowCapacity : number
-    static readonly verticalMargin : number
+    rowCapacity : number
+    verticalMargin : number
 
-    constructor(hourOffset : number = 0)
     updateTime() : void
     toggleLight() : void
     toggleEditMode() : void

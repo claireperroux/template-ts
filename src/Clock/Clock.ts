@@ -1,66 +1,66 @@
 interface ButtonPosition {
-  id: string;
-  angle: number;
-  rotation: number;
+    id: string;
+    angle: number;
+    rotation: number;
 }
 
 export class Clock {
 
-  private hourDisplay: HTMLElement;
-  private hourOffset: number;
-  private minuteOffset: number;
-  private editMode: string;
-  private is24HourFormat: boolean;
-  private mode: 'AM' | 'PM' | null ;
-  private container:HTMLElement;
-  private static count = 0; // Compteur statique pour suivre le nombre d'horloges
-  private readonly rowCapacity = 3; // Nombre maximal d'horloges par ligne
-  private readonly verticalMargin = 350; // Marge verticale entre les horloges
-  private initialHourOffset: number;
+    private hourDisplay: HTMLElement;
+    private hourOffset: number;
+    private minuteOffset: number;
+    private editMode: string;
+    private is24HourFormat: boolean;
+    private mode: 'AM' | 'PM' | null ;
+    private container:HTMLElement;
+    private static count = 0; // Compteur statique pour suivre le nombre d'horloges
+    private rowCapacity = 3; // Nombre maximal d'horloges par ligne
+    private verticalMargin = 350; // Marge verticale entre les horloges
+    private initialHourOffset: number;
 
-  constructor( hourOffset: number = 0) {
-      this.container = this.createClockElement();
-      this.hourDisplay = this.container.querySelector('.hour-display') as HTMLElement;
-      this.positionClock();
-      this.container.style.position = 'absolute';
-      this.hourOffset = hourOffset;
-      this.initialHourOffset = hourOffset;
-      this.minuteOffset = 0;
-      this.editMode = 'notEditable';
-      this.is24HourFormat = true;
-      this.mode= null;
-      this.setupButtons();
-      this.attachEventListeners();
-      this.updateTime();
-      setInterval(() => this.updateTime(), 100);
-  }
-
-  private attachEventListeners(): void {
-    const buttons: NodeListOf<HTMLButtonElement> = this.container.querySelectorAll('.clock-button');
-    buttons.forEach(button => {
-        button.addEventListener('click', (event) => this.handleButtonClick((event.target as HTMLElement).classList[1]));
-    });
-}
-
-  private handleButtonClick(buttonClass: string): void {
-    switch (buttonClass) {
-        case 'light-button':
-            this.toggleLight();
-            break;
-        case 'mode-button':
-            this.toggleEditMode();
-            break;
-        case 'increase-button':
-            this.increase();
-            break;
-        case 'reset-button':
-            this.reset();
-            break;
-        case 'format-button':
-            this.toggleTimeFormat();
-            break;
+    constructor( hourOffset: number = 0) {
+        this.container = this.createClockElement();
+        this.hourDisplay = this.container.querySelector('.hour-display') as HTMLElement;
+        this.positionClock();
+        this.container.style.position = 'absolute';
+        this.hourOffset = hourOffset;
+        this.initialHourOffset = hourOffset;
+        this.minuteOffset = 0;
+        this.editMode = 'notEditable';
+        this.is24HourFormat = true;
+        this.mode= null;
+        this.setupButtons();
+        this.attachEventListeners();
+        this.updateTime();
+        setInterval(() => this.updateTime(), 100);
     }
-  }
+
+    private attachEventListeners(): void {
+        const buttons: NodeListOf<HTMLButtonElement> = this.container.querySelectorAll('.clock-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (event) => this.handleButtonClick((event.target as HTMLElement).classList[1]));
+        });
+    }
+
+    private handleButtonClick(buttonClass: string): void {
+        switch (buttonClass) {
+            case 'light-button':
+                this.toggleLight();
+                break;
+            case 'mode-button':
+                this.toggleEditMode();
+                break;
+            case 'increase-button':
+                this.increase();
+                break;
+            case 'reset-button':
+                this.reset();
+                break;
+            case 'format-button':
+                this.toggleTimeFormat();
+                break;
+        }
+    }
 
 
     private setupButtons(): void {
